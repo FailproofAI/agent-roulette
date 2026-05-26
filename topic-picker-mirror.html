@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>topic roulette (mirror) — failproof_ai</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #131316;
+  }
+  iframe {
+    width: 100vw;
+    height: 100vh;
+    border: 0;
+    display: block;
+    transform: scaleX(-1);
+    transform-origin: center center;
+  }
+</style>
+</head>
+<body>
+<iframe id="picker"></iframe>
+<script>
+  const f = document.getElementById('picker');
+  f.src = 'topic-picker.html' + (window.location.search || '');
+  const refocus = () => { try { f.contentWindow.focus(); } catch (e) {} };
+  f.addEventListener('load', refocus);
+  window.addEventListener('click', refocus);
+  window.addEventListener('keydown', refocus);
+</script>
+</body>
+</html>
